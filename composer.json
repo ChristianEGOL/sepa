@@ -1,0 +1,19 @@
+{
+    "name": "egol/sepa",
+    "authors": [
+        {
+            "name": "Christian Timm",
+            "email": "christian@egol.de"
+        }
+    ],
+    "autoload": {
+    	"psr-4": {
+    		"EGOL\\Sepa\\": "src/"
+    	}
+    },
+    "require": {},
+    "require-dev": {
+        "illuminate/support": "^5.5",
+        "symfony/var-dumper": "^3.3"
+    }
+}
