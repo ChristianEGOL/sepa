@@ -4,9 +4,9 @@ namespace EGOL\Sepa;
 
 class DD extends SEPA
 {
-    public function __construct()
+    public function __construct($groupName, $iban, $bic, $glaeubigerId)
     {
-        parent::__construct();
+        parent::__construct($groupName, $iban, $bic, $glaeubigerId);
 
         $this->startElement('Document');
 
@@ -23,23 +23,6 @@ class DD extends SEPA
         $this->endAttribute();
 
         $this->startElement('CstmrDrctDbtInitn');
-    }
-
-    public function __destruct()
-    {
-        parent::__destruct();
-    }
-
-    /**
-     * Informationen für den Oberen Teil im Knoten <PmtInf>.
-     *
-     * @param int    $NbOfTxs      Anzahl der Einzeltransaktionen
-     * @param string $SeqTp        Sequenz TYP (FRST, RCUR, OOFF, FNAL)
-     * @param string $ReqdColltnDt Fälligkeitsdatum
-     */
-    public function setPaymentInformations($SeqTp)
-    {
-        $this->pmtInf['SeqTp'] = $SeqTp;
     }
 
     /**

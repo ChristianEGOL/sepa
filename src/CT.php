@@ -4,9 +4,9 @@ namespace EGOL\Sepa;
 
 class CT extends SEPA
 {
-    public function __construct()
+    public function __construct($groupName, $iban, $bic, $glaeubigerId)
     {
-        parent::__construct();
+        parent::__construct($groupName, $iban, $bic, $glaeubigerId);
 
         $this->startElement('Document');
 
@@ -24,12 +24,7 @@ class CT extends SEPA
 
         $this->startElement('CstmrCdtTrfInitn');
     }
-
-    public function __destruct()
-    {
-        parent::__destruct();
-    }
-
+    
     /**
      * Finalisiert das XML Dokument.
      */

@@ -40,7 +40,7 @@ abstract class Sepa extends XMLWriter
     /**
      * Schließt das XML Dokument.
      */
-    public function __destruct()
+    public function save()
     {
         // PmtInf
         $this->endElement();
@@ -52,7 +52,20 @@ abstract class Sepa extends XMLWriter
         $fp = fopen($this->savepath, 'w');
         fwrite($fp, $this->outputMemory());
         fclose($fp);
+    }
 
+    /**
+     * Informationen für den Oberen Teil im Knoten <PmtInf>.
+     *
+     * @param string $SeqTp        Sequenz TYP (FRST, RCUR, OOFF, FNAL)
+     */
+    public function setPaymentInformations($SeqTp = 'OOFF')
+    {
+        $this->pmtInf['SeqTp'] = $SeqTp;
+    }
+
+    public function open()
+    {
         header('Content-type: text/xml');
         header('Content-Disposition: attachment; filename="'.'"');
         readfile($this->savepath);
@@ -64,13 +77,13 @@ abstract class Sepa extends XMLWriter
      * @param string $name       Name des Käufers
      * @param string $iban
      * @param string $bic
-     * @param float  $amount Einzelsumme
+     * @param float  $amount Einzelsumme©©
      * @param int    $mandatId Mandat ID
      * @param int    $comment     Verwendungszweck
      */
     public function add($name, $iban, $bic, $amount, $mandatId, $comment)
     {
-        $this->Debitor[$this->DebitorCnt]['Nm'] = $Nm;
+        $this->Debitor[$this->DebitorCnt]['Nm'] = $name;
         $this->Debitor[$this->DebitorCnt]['InstdAmt'] = $amount;
         $this->Debitor[$this->DebitorCnt]['MndtId'] = $mandatId;
         $this->Debitor[$this->DebitorCnt]['IBAN'] = $iban;
