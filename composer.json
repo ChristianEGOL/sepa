@@ -11,7 +11,9 @@
     		"EGOL\\SepaXml\\": "src/"
     	}
     },
-    "require": {},
+    "require": {
+        "cocur/slugify": "^3.0"
+    },
     "require-dev": {
         "illuminate/support": "^5.5",
         "symfony/var-dumper": "^3.3"
