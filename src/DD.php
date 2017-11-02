@@ -37,6 +37,8 @@ class DD extends SEPA
         for ($i = 0; $i <= $this->DebitorCnt - 1; ++$i) {
             $this->buildDebitor($i);
         }
+
+        $this->save();
     }
 
     /**

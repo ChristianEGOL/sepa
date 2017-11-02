@@ -4,9 +4,9 @@ namespace EGOL\Sepa;
 
 class CT extends SEPA
 {
-    public function __construct($groupName, $iban, $bic, $glaeubigerId)
+    public function __construct($groupName, $iban, $bic)
     {
-        parent::__construct($groupName, $iban, $bic, $glaeubigerId);
+        parent::__construct($groupName, $iban, $bic, 0);
 
         $this->startElement('Document');
 
@@ -36,6 +36,8 @@ class CT extends SEPA
         for ($i = 0; $i <= $this->DebitorCnt - 1; ++$i) {
             $this->buildCreditor($i);
         }
+
+        $this->save();
     }
 
     private function buildDebitor()
