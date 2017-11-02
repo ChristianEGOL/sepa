@@ -4,9 +4,11 @@ namespace EGOL\SepaXml;
 
 class DD extends SEPA
 {
-    public function __construct($groupName, $iban, $bic, $glaeubigerId)
+    public function __construct($groupName, $iban, $bic, $glaeubigerId, $paymentInformation = 'OOFF')
     {
         parent::__construct($groupName, $iban, $bic, $glaeubigerId);
+
+        $this->setPaymentInformations($paymentInformation);
 
         $this->startElement('Document');
 
