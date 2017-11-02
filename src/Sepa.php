@@ -77,7 +77,7 @@ abstract class Sepa extends XMLWriter
      * @param string $name       Name des Käufers
      * @param string $iban
      * @param string $bic
-     * @param float  $amount Einzelsumme©©
+     * @param float  $amount Einzelsumme
      * @param int    $mandatId Mandat ID
      * @param int    $comment     Verwendungszweck
      */
