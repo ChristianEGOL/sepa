@@ -1,6 +1,6 @@
 <?php
 
-namespace EGOL\Sepa;
+namespace EGOL\SepaXml;
 
 abstract class SepaError
 {

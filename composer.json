@@ -1,5 +1,5 @@
 {
-    "name": "egol/sepa",
+    "name": "egol/sepaxml",
     "authors": [
         {
             "name": "Christian Timm",
@@ -8,7 +8,7 @@
     ],
     "autoload": {
     	"psr-4": {
-    		"EGOL\\Sepa\\": "src/"
+    		"EGOL\\SepaXml\\": "src/"
     	}
     },
     "require": {},
