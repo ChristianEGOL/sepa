@@ -101,6 +101,7 @@ abstract class Sepa extends XMLWriter
         $this->writeElement('MsgId', $this->grpHeader['MsgId']);
         $this->writeElement('CreDtTm', date('Y-m-d\TH:i:s'));
         $this->writeElement('NbOfTxs', $this->DebitorCnt);
+        $this->writeElement('CtrlSum', $this->getTotal());
 
         $this->startElement('InitgPty');
         $this->writeElement('Nm', $this->grpHeader['Nm']);
