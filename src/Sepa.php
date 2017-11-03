@@ -14,6 +14,7 @@ abstract class Sepa extends XMLWriter
     protected $Debitor;
     protected $Creditor;
     protected $savepath;
+    protected $company;
 
     /**
      * Dokumentinfos für die Lastschrift werden erstellt.
@@ -35,6 +36,11 @@ abstract class Sepa extends XMLWriter
         $this->setIndentString(' ');
         $this->startDocument('1.0', 'UTF-8');
         $this->endDocument();
+    }
+
+    public function setCompany($company)
+    {
+        $this->company = $company;
     }
 
     /**
@@ -139,7 +145,7 @@ abstract class Sepa extends XMLWriter
      */
     protected function generatePaymentId()
     {
-        return 'PALBOO'.rand(100000000, 999999999).date('His');
+        return $this->company . rand(100000000, 999999999).date('His');
     }
 
     /**
@@ -147,6 +153,6 @@ abstract class Sepa extends XMLWriter
      */
     protected function generateEndToEndId()
     {
-        return 'PALBOOCSTMR'.rand(100000000, 999999999).date('His');
+        return $this->company . 'CSTMR'.rand(100000000, 999999999).date('His');
     }
 }
