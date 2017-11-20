@@ -73,7 +73,7 @@ abstract class Sepa extends XMLWriter
     public function open()
     {
         header('Content-type: text/xml');
-        header('Content-Disposition: attachment; filename="'.'"');
+        header('Content-Disposition: attachment; filename="' . $this->savepath . '"');
         readfile($this->savepath);
     }
 
