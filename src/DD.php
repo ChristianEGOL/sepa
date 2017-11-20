@@ -2,7 +2,7 @@
 
 namespace EGOL\SepaXml;
 
-class DD extends SEPA
+class DD extends Sepa
 {
     public function __construct($groupName, $iban, $bic, $glaeubigerId, $paymentInformation = 'OOFF')
     {

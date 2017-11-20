@@ -2,7 +2,7 @@
 
 namespace EGOL\SepaXml;
 
-class CT extends SEPA
+class CT extends Sepa
 {
     public function __construct($groupName, $iban, $bic)
     {
