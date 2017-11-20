@@ -11,11 +11,16 @@
     		"EGOL\\SepaXml\\": "src/"
     	}
     },
+    "config": {
+        "platform": {
+            "php": "5.3.3"
+        }
+    },
     "require": {
-        "cocur/slugify": "^3.0"
+        "cocur/slugify": "^1.4"
     },
     "require-dev": {
-        "illuminate/support": "^5.5",
-        "symfony/var-dumper": "^3.3"
+        "illuminate/support": "^4.1",
+        "symfony/var-dumper": "^2.6"
     }
 }
