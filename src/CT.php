@@ -24,7 +24,7 @@ class CT extends Sepa
 
         $this->startElement('CstmrCdtTrfInitn');
     }
-    
+
     /**
      * Finalisiert das XML Dokument.
      */

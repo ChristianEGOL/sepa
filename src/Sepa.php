@@ -137,7 +137,7 @@ abstract class Sepa extends XMLWriter
      */
     protected function generateMsgId()
     {
-        return $this->Accountant['BIC'].rand(100000000, 999999999).date('dmYHis');
+        return $this->Accountant['BIC'] . rand(100000000, 999999999) . date('dmYHis');
     }
 
     /**
@@ -145,7 +145,7 @@ abstract class Sepa extends XMLWriter
      */
     protected function generatePaymentId()
     {
-        return $this->company . rand(100000000, 999999999).date('His');
+        return $this->company . rand(100000000, 999999999) . date('His');
     }
 
     /**
@@ -153,6 +153,6 @@ abstract class Sepa extends XMLWriter
      */
     protected function generateEndToEndId()
     {
-        return $this->company . 'CSTMR'.rand(100000000, 999999999).date('His');
+        return $this->company . 'CSTMR' . rand(100000000, 999999999) . date('His');
     }
 }

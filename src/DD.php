@@ -4,7 +4,7 @@ namespace EGOL\SepaXml;
 
 class DD extends Sepa
 {
-    public function __construct($groupName, $iban, $bic, $glaeubigerId, $paymentInformation = 'OOFF')
+    public function __construct($groupName, $iban, $bic, $glaeubigerId, $paymentInformation = 'OOFF', $pain = '008.003.02')
     {
         parent::__construct($groupName, $iban, $bic, $glaeubigerId);
 
@@ -13,11 +13,11 @@ class DD extends Sepa
         $this->startElement('Document');
 
         $this->startAttribute('xsi:schemaLocation');
-        $this->text('urn:iso:std:iso:20022:tech:xsd:pain.008.003.02 pain.008.003.02.xsd');
+        $this->text('urn:iso:std:iso:20022:tech:xsd:pain.' . $pain . ' pain.' . $pain . '.xsd');
         $this->endAttribute();
 
         $this->startAttribute('xmlns');
-        $this->text('urn:iso:std:iso:20022:tech:xsd:pain.008.003.02');
+        $this->text('urn:iso:std:iso:20022:tech:xsd:pain.' . $pain . '');
         $this->endAttribute();
 
         $this->startAttribute('xmlns:xsi');
@@ -87,8 +87,8 @@ class DD extends Sepa
         $this->startElement('PmtInf');
         $this->writeElement('PmtInfId', $this->generatePaymentId());
         $this->writeElement('PmtMtd', 'DD');
-            // $this->writeElement('BtchBookg', 'false');
-            $this->writeElement('NbOfTxs', $this->DebitorCnt);
+        // $this->writeElement('BtchBookg', 'false');
+        $this->writeElement('NbOfTxs', $this->DebitorCnt);
         $this->writeElement('CtrlSum', $this->getTotal());
 
         $this->startElement('PmtTpInf');
@@ -145,7 +145,7 @@ class DD extends Sepa
             $this->writeElement('Ustrd', $this->Debitor[$cnt]['verwendungszweck']);
             $this->endElement();
         }
-        
+
         $this->endElement();
     }
 }

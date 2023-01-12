@@ -1,26 +1,27 @@
 {
-    "name": "egol/sepaxml",
-    "authors": [
-        {
-            "name": "Christian Timm",
-            "email": "christian@egol.de"
-        }
-    ],
-    "autoload": {
-    	"psr-4": {
-    		"EGOL\\SepaXml\\": "src/"
-    	}
-    },
-    "config": {
-        "platform": {
-            "php": "5.3.3"
-        }
-    },
-    "require": {
-        "cocur/slugify": "^1.4"
-    },
-    "require-dev": {
-        "illuminate/support": "^4.1",
-        "symfony/var-dumper": "^2.6"
+  "name": "egol/sepaxml",
+  "authors": [
+    {
+      "name": "Christian Timm",
+      "email": "christian@egol.de"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "EGOL\\SepaXml\\": "src/"
+    }
+  },
+  "config": {
+    "platform": {
+      "php": "5.6"
+    }
+  },
+  "require": {
+    "cocur/slugify": "^1.4"
+  },
+  "require-dev": {
+    "illuminate/support": "^4.1",
+    "symfony/var-dumper": "^2.6",
+    "phpunit/phpunit": "^4.8"
+  }
 }
