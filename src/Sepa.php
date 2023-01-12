@@ -15,6 +15,7 @@ abstract class Sepa extends XMLWriter
     protected $Creditor;
     protected $savepath;
     protected $company;
+    protected $output;
 
     /**
      * Dokumentinfos für die Lastschrift werden erstellt.
