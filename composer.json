@@ -1,5 +1,6 @@
 {
   "name": "egol/sepaxml",
+  "license: "MIT",
   "authors": [
     {
       "name": "Christian Timm",
