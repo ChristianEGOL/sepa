@@ -4,18 +4,18 @@ namespace EGOL\SepaXml;
 
 class CT extends Sepa
 {
-    public function __construct($groupName, $iban, $bic)
+    public function __construct($groupName, $iban, $bic, $pain = '001.003.03')
     {
         parent::__construct($groupName, $iban, $bic, 0);
 
         $this->startElement('Document');
 
         $this->startAttribute('xsi:schemaLocation');
-        $this->text('urn:iso:std:iso:20022:tech:xsd:pain.001.003.03 pain.001.003.03.xsd');
+        $this->text('urn:iso:std:iso:20022:tech:xsd:pain.' . $pain . ' pain.' . $pain . '.xsd');
         $this->endAttribute();
 
         $this->startAttribute('xmlns');
-        $this->text('urn:iso:std:iso:20022:tech:xsd:pain.001.003.03');
+        $this->text('urn:iso:std:iso:20022:tech:xsd:pain.' . $pain . '');
         $this->endAttribute();
 
         $this->startAttribute('xmlns:xsi');
