@@ -11,7 +11,7 @@ class Validator
     const PAIN00800302 = 2;
     const PAIN00100103 = 3;
 
-    protected array $errors = [];
+    protected $errors = [];
 
     public function __construct(Sepa $sepa, int $schema)
     {
