@@ -2,9 +2,7 @@
 
 namespace EGOL\SepaXml;
 
-use EGOL\SepaXml\Interface\SepaInterface;
-
-class CT extends Sepa implements SepaInterface
+class CT extends Sepa
 {
     public function __construct($groupName, $iban, $bic, $pain = '001.003.03')
     {
