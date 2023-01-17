@@ -14,7 +14,7 @@ class Validator
 
     protected $errors = [];
 
-    public function __construct(SepaContract $sepa, int $schema)
+    public function __construct(SepaContract $sepa, $schema)
     {
         $xml = new DOMDocument();
         $xml->loadXML($sepa, LIBXML_NOBLANKS);
