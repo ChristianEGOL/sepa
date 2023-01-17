@@ -2,10 +2,10 @@
 
 namespace EGOL\SepaXml;
 
-use EGOL\SepaXml\Interface\SepaInterface;
+use EGOL\SepaXml\Contracts\SepaContract;
 use \XMLWriter;
 
-abstract class Sepa extends XMLWriter implements SepaInterface
+abstract class Sepa extends XMLWriter implements SepaContract
 {
     protected $grpHeader;
     protected $pmtInf;

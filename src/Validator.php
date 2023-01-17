@@ -3,7 +3,7 @@
 namespace EGOL\SepaXml;
 
 use DOMDocument;
-use EGOL\SepaXml\Interface\SepaInterface;
+use EGOL\SepaXml\Contracts\SepaContract;
 use Exception;
 
 class Validator
@@ -14,7 +14,7 @@ class Validator
 
     protected $errors = [];
 
-    public function __construct($sepa, int $schema)
+    public function __construct(SepaContract $sepa, int $schema)
     {
         $xml = new DOMDocument();
         $xml->loadXML($sepa, LIBXML_NOBLANKS);
