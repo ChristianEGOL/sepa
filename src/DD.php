@@ -2,7 +2,9 @@
 
 namespace EGOL\SepaXml;
 
-class DD extends Sepa
+use EGOL\SepaXml\Interface\SepaInterface;
+
+class DD extends Sepa implements SepaInterface
 {
     public function __construct($groupName, $iban, $bic, $glaeubigerId, $paymentInformation = 'OOFF', $pain = '008.003.02')
     {
