@@ -38,8 +38,6 @@ class CT extends Sepa implements SepaContract
         for ($i = 0; $i <= $this->DebitorCnt - 1; ++$i) {
             $this->buildCreditor($i);
         }
-
-        $this->save();
     }
 
     private function buildDebitor()
