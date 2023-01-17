@@ -60,7 +60,7 @@ class Validator
         return $string;
     }
 
-    private function getSchema(int $schema)
+    private function getSchema($schema)
     {
         switch ($schema) {
             case 1:
