@@ -2,7 +2,9 @@
 
 namespace EGOL\SepaXml;
 
-class CT extends Sepa
+use EGOL\SepaXml\Contracts\SepaContract;
+
+class CT extends Sepa implements SepaContract
 {
     public function __construct($groupName, $iban, $bic, $pain = '001.003.03')
     {
