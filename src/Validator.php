@@ -3,18 +3,23 @@
 namespace EGOL\SepaXml;
 
 use DOMDocument;
+use Exception;
 
 class Validator
 {
+    const PAIN00800102 = 1;
+    const PAIN00800302 = 2;
+    const PAIN00100103 = 3;
+
     protected array $errors = [];
 
-    public function __construct(string $content, string $xsdPath)
+    public function __construct(Sepa $sepa, int $schema)
     {
         $xml = new DOMDocument();
-        $xml->loadXML($content, LIBXML_NOBLANKS);
+        $xml->loadXML($sepa, LIBXML_NOBLANKS);
         libxml_use_internal_errors(true);
 
-        if (!$xml->schemaValidateSource(file_get_contents($xsdPath))) {
+        if (!$xml->schemaValidateSource($this->getSchema($schema))) {
             $errors = libxml_get_errors();
 
             foreach ($errors as $error) {
@@ -52,5 +57,22 @@ class Validator
         $string .= " on line <b>$error->line</b>\n";
 
         return $string;
+    }
+
+    private function getSchema(int $schema)
+    {
+        switch ($schema) {
+            case 1:
+                return file_get_contents(__DIR__ . '/Schemas/008.001.02.xsd');
+                break;
+            case 1:
+                return file_get_contents(__DIR__ . '/Schemas/008.003.02.xsd');
+                break;
+            case 3:
+                return file_get_contents(__DIR__ . '/Schemas/001.001.03.xsd');
+                break;
+            default:
+                throw new Exception('Schema not found');
+        }
     }
 }
