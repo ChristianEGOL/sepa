@@ -66,6 +66,13 @@ abstract class Sepa extends XMLWriter
         $this->pmtInf['SeqTp'] = $SeqTp;
     }
 
+    function download()
+    {
+        header('Content-type: text/xml');
+        header('Content-Disposition: attachment; filename="' . $this->savepath . '"');
+        echo $this;
+    }
+
     public function output()
     {
         header('Content-type: text/xml');
