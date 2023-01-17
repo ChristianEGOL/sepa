@@ -49,15 +49,10 @@ abstract class Sepa extends XMLWriter
      */
     public function save()
     {
-        // PmtInf
-        $this->endElement();
-        // CstmrDrctDbtInitn
-        $this->endElement();
-        // Document
-        $this->endElement();
+        $this->closeDocument();
 
         $fp = fopen($this->savepath, 'w');
-        fwrite($fp, $this->outputMemory());
+        fwrite($fp, $this);
         fclose($fp);
     }
 
@@ -71,11 +66,11 @@ abstract class Sepa extends XMLWriter
         $this->pmtInf['SeqTp'] = $SeqTp;
     }
 
-    public function open()
+    public function output()
     {
         header('Content-type: text/xml');
-        header('Content-Disposition: attachment; filename="' . $this->savepath . '"');
-        readfile($this->savepath);
+
+        echo $this;
     }
 
     /**
@@ -155,5 +150,23 @@ abstract class Sepa extends XMLWriter
     protected function generateEndToEndId()
     {
         return $this->company . 'CSTMR' . rand(100000000, 999999999) . date('His');
+    }
+
+    public function __toString()
+    {
+        $this->closeDocument();
+
+        return $this->outputMemory();
+    }
+
+
+    private function closeDocument()
+    {
+        // PmtInf
+        $this->endElement();
+        // CstmrDrctDbtInitn
+        $this->endElement();
+        // Document
+        $this->endElement();
     }
 }
